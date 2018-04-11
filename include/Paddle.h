@@ -1,6 +1,8 @@
 #ifndef PADDLE_H
 #define PADDLE_H
 
+#include "GameItem.h"
+
 //How inheritance works in C++?
 class Paddle : GameItem(surface, rectangle, "Paddle")
 {

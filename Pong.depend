@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1519829779 source:c:\users\matti\dropbox\development\pong\main.cpp
+1519833379 source:c:\users\matti\dropbox\development\pong\main.cpp
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
@@ -326,7 +326,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519981235 c:\users\matti\dropbox\development\pong\include\game.h
+1519984835 c:\users\matti\dropbox\development\pong\include\game.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -334,7 +334,7 @@
 	"Scene.h"
 	"white.h"
 
-1519984868 source:c:\users\matti\dropbox\development\pong\src\game.cpp
+1522096401 source:c:\users\matti\dropbox\development\pong\src\game.cpp
 	"Game.h"
 
 1519829779 source:c:\users\roki\dropbox\development\pong\main.cpp
@@ -693,7 +693,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519984984 c:\users\matti\dropbox\development\pong\include\scene.h
+1519988584 c:\users\matti\dropbox\development\pong\include\scene.h
 	<stdio.h>
 	<stdlib.h>
 	"GameItem.h"
@@ -706,12 +706,12 @@
 	<SDL.h>
 	<SDL2\SDL_image.h>
 
-1519893279 c:\users\matti\dropbox\development\pong\include\white.h
+1519896879 c:\users\matti\dropbox\development\pong\include\white.h
 
 1519911716 source:c:\users\matti\dropbox\development\pong\src\ball.cpp
 	"Ball.h"
 
-1519907378 source:c:\users\matti\dropbox\development\pong\src\scene.cpp
+1519988992 source:c:\users\matti\dropbox\development\pong\src\scene.cpp
 	"Scene.h"
 
 1519829779 source:c:\users\matti.wiab\dropbox\development\pong\main.cpp
@@ -1099,17 +1099,17 @@
 1519980714 source:c:\users\matti.wiab\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
-1519980432 c:\users\matti\dropbox\development\pong\include\gameitem.h
+1522097586 c:\users\matti\dropbox\development\pong\include\gameitem.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
 
-1519985294 c:\users\matti\dropbox\development\pong\include\sceneobject.h
+1519988894 c:\users\matti\dropbox\development\pong\include\sceneobject.h
 	<SDL.h>
 	"GameItem.h"
 
-1519981404 source:c:\users\matti\dropbox\development\pong\src\gameitem.cpp
+1520367169 source:c:\users\matti\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
 1519833379 source:c:\users\vivaldi\dropbox\development\pong\main.cpp
@@ -1520,5 +1520,8 @@
 	"Scene.h"
 
 1519985300 source:c:\users\roki\dropbox\development\pong\src\sceneobject.cpp
+	"SceneObject.h"
+
+1519988900 source:c:\users\matti\dropbox\development\pong\src\sceneobject.cpp
 	"SceneObject.h"
 
