@@ -8,6 +8,7 @@
 
 #include "Scene.h"
 #include "white.h"
+#include "Paddle.h"
 
 class Game
 {
@@ -16,10 +17,11 @@ class Game
         void Run();
         ~Game();
 
+        const int SCREEN_WIDTH = 800;
+        const int SCREEN_HEIGHT = 600;
     protected:
-
+        void HandlePaddleMove(bool up, Paddle *paddle);
     private:
-
     //Private variables
     SDL_Window *pWindow;
     //SDL_Renderer *pRenderer;

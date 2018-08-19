@@ -3,11 +3,11 @@
 
 #include "GameItem.h"
 
-//How inheritance works in C++?
-class Paddle : GameItem(surface, rectangle, "Paddle")
+// How inheritance works in C++?
+class Paddle : public GameItem /*(surface, rectangle, "Paddle") */
 {
     public:
-        Paddle(SDL_Surface surface, SDL_Rect &rectangle);
+        Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle);
         virtual ~Paddle();
 
     protected:

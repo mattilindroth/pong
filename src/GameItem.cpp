@@ -2,7 +2,7 @@
 
 GameItem::GameItem(SDL_Surface *&surface, SDL_Rect *&rectangle, const char *name)
 {
-    printf("GameItem constructor called\n");
+    printf("GameItem constructor called for object %s\n", name);
     pSurface = surface;
     pRectangle = rectangle;
     pName = name;

@@ -1,8 +1,8 @@
 #include "Paddle.h"
 
-Paddle::Paddle()
+Paddle::Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle) : GameItem(surface, rectangle, "paddle")
 {
-    //ctor
+
 }
 
 Paddle::~Paddle()
