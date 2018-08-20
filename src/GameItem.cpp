@@ -13,6 +13,19 @@ void GameItem::Move( int x, int y ) {
     pRectangle->y += y;
 }
 
+void GameItem::SetSpeed(int x, int y) {
+    pSpeedX = x;
+    pSpeedY = y;
+}
+
+int GameItem::GetSpeedX( void ) {
+    return pSpeedX;
+}
+
+int GameItem::GetSpeedY( void ) {
+    return pSpeedY;
+}
+
 SDL_Surface *GameItem::GetSurface ( void ) {
 
     return pSurface;

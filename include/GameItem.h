@@ -12,6 +12,9 @@ class GameItem
         GameItem(SDL_Surface *&surface, SDL_Rect *&rectangle, const char *name);
         SDL_Surface *GetSurface( void );
         void Move( int x, int y );
+        void SetSpeed(int x, int y);
+        int GetSpeedX( void );
+        int GetSpeedY( void );
         SDL_Rect *GetRectangle( void );
         ~GameItem();
 
@@ -21,6 +24,7 @@ class GameItem
         SDL_Surface *pSurface;
         SDL_Rect *pRectangle;
         const char* pName;
+        int pSpeedX, pSpeedY;
 };
 
 #endif // BALL_H

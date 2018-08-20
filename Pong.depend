@@ -326,7 +326,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1534707409 c:\users\matti\dropbox\development\pong\include\game.h
+1534794715 c:\users\matti\dropbox\development\pong\include\game.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -334,6 +334,7 @@
 	"Scene.h"
 	"white.h"
 	"Paddle.h"
+	"ValueRange.h"
 
 1534707426 source:c:\users\matti\dropbox\development\pong\src\game.cpp
 	"Game.h"
@@ -1100,7 +1101,7 @@
 1519980714 source:c:\users\matti.wiab\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
-1522097586 c:\users\matti\dropbox\development\pong\include\gameitem.h
+1534794361 c:\users\matti\dropbox\development\pong\include\gameitem.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -1110,7 +1111,7 @@
 	<SDL.h>
 	"GameItem.h"
 
-1534342953 source:c:\users\matti\dropbox\development\pong\src\gameitem.cpp
+1534794674 source:c:\users\matti\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
 1519833379 source:c:\users\vivaldi\dropbox\development\pong\main.cpp
@@ -1871,4 +1872,9 @@
 
 1534343676 c:\users\matti\dropbox\development\pong\include\paddle.h
 	"GameItem.h"
+
+1534793191 c:\users\matti\dropbox\development\pong\include\valuerange.h
+
+1534793417 source:c:\users\matti\dropbox\development\pong\src\valuerange.cpp
+	"ValueRange.h"
 

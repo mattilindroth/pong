@@ -22,6 +22,27 @@ Game::Game()
     pScene = new Scene( pWindow );
 }
 
+bool Game::AreColliding(GameItem *ball, Paddle *paddle) {
+    SDL_Rect *prect = paddle->GetRectangle();
+    SDL_Rect *brect = paddle->GetRectangle();
+    ValueRange *paddlex = new ValueRange(prect->x + prect->w, prect->x);
+    ValueRange *paddley = new ValueRange(prect->y + prect->h, prect->y);
+
+    if(paddlex->IsInRange(brect->x) && paddley->IsInRange(brect->y)) {
+        return true;
+    }
+    if(paddlex->IsInRange((brect->x + brect->w) && paddley->IsInRange(brect->y))) {
+        return true;
+    }
+    if(paddlex->IsInRange(brect->x) && paddley->IsInRange(brect->y + brect->h)) {
+        return true;
+    }
+    if(paddlex->IsInRange((brect->x + brect->w) && paddley->IsInRange(brect->y + brect->h))) {
+        return true;
+    }
+    return false;
+}
+
 void Game::HandlePaddleMove(bool Up, Paddle *paddle) {
     if(Up) {
         if(paddle->GetRectangle()->y > 0) {
@@ -76,6 +97,8 @@ void Game::Run() {
 
     quit = false;
 
+    theBall->SetSpeed(2, 0);
+
     while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
@@ -89,6 +112,15 @@ void Game::Run() {
         } else if(!keystates[SDL_SCANCODE_A] && keystates[SDL_SCANCODE_Z]) {
             HandlePaddleMove(false, left);
         }
+
+        if(AreColliding(theBall, left)) {
+            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY());
+        }
+        if(AreColliding(theBall, right)) {
+            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY());
+        }
+
+        theBall->Move(theBall->GetSpeedX(), theBall->GetSpeedY());
 
         SDL_Delay(20);
 

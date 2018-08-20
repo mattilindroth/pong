@@ -9,6 +9,7 @@
 #include "Scene.h"
 #include "white.h"
 #include "Paddle.h"
+#include "ValueRange.h"
 
 class Game
 {
@@ -21,6 +22,7 @@ class Game
         const int SCREEN_HEIGHT = 600;
     protected:
         void HandlePaddleMove(bool up, Paddle *paddle);
+        bool AreColliding(GameItem *ball, Paddle *paddle);
     private:
     //Private variables
     SDL_Window *pWindow;
