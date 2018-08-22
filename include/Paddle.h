@@ -8,6 +8,7 @@ class Paddle : public GameItem /*(surface, rectangle, "Paddle") */
 {
     public:
         Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle);
+        void Move( int x, int y );
         virtual ~Paddle();
 
     protected:

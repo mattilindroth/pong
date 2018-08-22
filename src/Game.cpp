@@ -106,11 +106,12 @@ void Game::Run() {
 
     quit = false;
 
-    theBall->SetSpeed(2, 0);
+    theBall->SetSpeed(4, 0);
 
     while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
+        //Check for keycodes
         if(keystates[SDL_SCANCODE_UP] && !keystates[SDL_SCANCODE_DOWN]) {
             HandlePaddleMove(true, right);
         } else if (!keystates[SDL_SCANCODE_UP] && keystates[SDL_SCANCODE_DOWN]) {
@@ -122,15 +123,18 @@ void Game::Run() {
             HandlePaddleMove(false, left);
         }
 
+        //Check for collision with paddles
         if(AreColliding(theBall, left)) {
-            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY());
+            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY() + left->GetSpeedY());
         }
         if(AreColliding(theBall, right)) {
-            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY());
+            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY()+ right->GetSpeedY());
         }
 
+        //Move the ball
         theBall->Move(theBall->GetSpeedX(), theBall->GetSpeedY());
 
+        //Check for ball going outside game area
         rect1 = theBall->GetRectangle();
         if (rect1->x <= 0) {
             //Right player scores
@@ -138,6 +142,11 @@ void Game::Run() {
         } else if((rect1->x + rect1->w) >= SCREEN_WIDTH) {
             //Left player scores
             quit = true;
+        }
+
+        //Check for collision of ball with y limits
+        if(rect1->y <= 0 || (rect1->y+rect1->h) >= SCREEN_HEIGHT) {
+            theBall->SetSpeed(theBall->GetSpeedX(), -theBall->GetSpeedY());
         }
 
         SDL_Delay(20);

@@ -19,12 +19,13 @@ class GameItem
         ~GameItem();
 
     protected:
-
+        int pSpeedX, pSpeedY;
+        SDL_Rect *pRectangle;
     private:
         SDL_Surface *pSurface;
-        SDL_Rect *pRectangle;
+
         const char* pName;
-        int pSpeedX, pSpeedY;
+
 };
 
 #endif // BALL_H

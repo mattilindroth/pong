@@ -1101,7 +1101,7 @@
 1519980714 source:c:\users\matti.wiab\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
-1534794361 c:\users\matti\dropbox\development\pong\include\gameitem.h
+1534917541 c:\users\matti\dropbox\development\pong\include\gameitem.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -1867,10 +1867,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1534705583 source:c:\users\matti\dropbox\development\pong\src\paddle.cpp
+1534917150 source:c:\users\matti\dropbox\development\pong\src\paddle.cpp
 	"Paddle.h"
 
-1534343676 c:\users\matti\dropbox\development\pong\include\paddle.h
+1534917510 c:\users\matti\dropbox\development\pong\include\paddle.h
 	"GameItem.h"
 
 1534862570 c:\users\matti\dropbox\development\pong\include\valuerange.h
