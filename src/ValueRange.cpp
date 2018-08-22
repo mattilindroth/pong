@@ -6,7 +6,14 @@ ValueRange::ValueRange(int Max, int Min) {
 }
 
 bool ValueRange::IsInRange(int val) {
-    return (mMin <= val && mMax >= val);
+
+    if(val <= mMax) {
+        if(val >= mMin) {
+//            printf("mMAx: %i, mMin: %i, val: %i\n", mMax, mMin, val);
+            return true;
+        }
+    }
+    return false;
 }
 
 int ValueRange::GetMax( void ) {

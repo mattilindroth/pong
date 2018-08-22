@@ -58,6 +58,7 @@
 		<Unit filename="include/Paddle.h" />
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/SceneObject.h" />
+		<Unit filename="include/ValueRange.h" />
 		<Unit filename="include/white.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Game.cpp" />
@@ -65,6 +66,7 @@
 		<Unit filename="src/Paddle.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/SceneObject.cpp" />
+		<Unit filename="src/ValueRange.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

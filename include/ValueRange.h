@@ -1,6 +1,7 @@
 #ifndef VALUERANGE_H
 #define VALUERANGE_H
 
+#include <stdio.h>
 
 class ValueRange
 {

@@ -24,22 +24,31 @@ Game::Game()
 
 bool Game::AreColliding(GameItem *ball, Paddle *paddle) {
     SDL_Rect *prect = paddle->GetRectangle();
-    SDL_Rect *brect = paddle->GetRectangle();
+    SDL_Rect *brect = ball->GetRectangle();
+
     ValueRange *paddlex = new ValueRange(prect->x + prect->w, prect->x);
     ValueRange *paddley = new ValueRange(prect->y + prect->h, prect->y);
+//    printf("Valuerange paddlex: Min: %i, Max: %i\n", paddlex->GetMin(), paddlex->GetMax());
+//    printf("Valuerange paddley: Min: %i, Max: %i\n", paddley->GetMin(), paddley->GetMax());
 
     if(paddlex->IsInRange(brect->x) && paddley->IsInRange(brect->y)) {
+//        printf("first collision if\n");
         return true;
     }
-    if(paddlex->IsInRange((brect->x + brect->w) && paddley->IsInRange(brect->y))) {
+    if(paddlex->IsInRange(brect->x + brect->w) && paddley->IsInRange(brect->y)) {
+//        printf("second collision if x: %i y: %i\n", brect->x + brect->w, brect->y);
+
         return true;
     }
     if(paddlex->IsInRange(brect->x) && paddley->IsInRange(brect->y + brect->h)) {
+//        printf("third collision if\n");
         return true;
     }
-    if(paddlex->IsInRange((brect->x + brect->w) && paddley->IsInRange(brect->y + brect->h))) {
+    if(paddlex->IsInRange(brect->x + brect->w) && paddley->IsInRange(brect->y + brect->h)) {
+//        printf("fourth collision if\n");
         return true;
     }
+
     return false;
 }
 
@@ -134,14 +143,6 @@ void Game::Run() {
                     case SDL_SCANCODE_ESCAPE:
                         quit = true;
                         break;
-//                    case SDL_SCANCODE_UP:
-//                        //HandleKeyDown();
-//                        left->Move(0, -5);
-//                        break;
-//                    case SDL_SCANCODE_DOWN:
-//                        left->Move(0, 5);
-//                        break;
-
                 }
             }
         }

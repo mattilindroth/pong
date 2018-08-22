@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1519833379 source:c:\users\matti\dropbox\development\pong\main.cpp
+1534914691 source:c:\users\matti\dropbox\development\pong\main.cpp
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
@@ -336,7 +336,7 @@
 	"Paddle.h"
 	"ValueRange.h"
 
-1534707426 source:c:\users\matti\dropbox\development\pong\src\game.cpp
+1534914742 source:c:\users\matti\dropbox\development\pong\src\game.cpp
 	"Game.h"
 
 1519829779 source:c:\users\roki\dropbox\development\pong\main.cpp
@@ -1873,8 +1873,9 @@
 1534343676 c:\users\matti\dropbox\development\pong\include\paddle.h
 	"GameItem.h"
 
-1534793191 c:\users\matti\dropbox\development\pong\include\valuerange.h
+1534862570 c:\users\matti\dropbox\development\pong\include\valuerange.h
+	<stdio.h>
 
-1534793417 source:c:\users\matti\dropbox\development\pong\src\valuerange.cpp
+1534862535 source:c:\users\matti\dropbox\development\pong\src\valuerange.cpp
 	"ValueRange.h"
 
