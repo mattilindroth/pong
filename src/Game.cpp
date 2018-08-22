@@ -131,6 +131,15 @@ void Game::Run() {
 
         theBall->Move(theBall->GetSpeedX(), theBall->GetSpeedY());
 
+        rect1 = theBall->GetRectangle();
+        if (rect1->x <= 0) {
+            //Right player scores
+            quit = true;
+        } else if((rect1->x + rect1->w) >= SCREEN_WIDTH) {
+            //Left player scores
+            quit = true;
+        }
+
         SDL_Delay(20);
 
         while(SDL_PollEvent( &e ) != 0) {
