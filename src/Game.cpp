@@ -134,6 +134,19 @@ void Game::Run() {
             theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY()+ right->GetSpeedY());
         }
 
+        rect1 = theBall->GetRectangle();
+        if(rect1->y <= 0 || (rect1->y + rect1->h) > SCREEN_HEIGHT) {
+            theBall->SetSpeed(theBall->GetSpeedX(), -theBall->GetSpeedY());
+        }
+
+        if(rect1->x <= 0 ) {
+            //Right player scores
+            quit = true;
+        } else if((rect1->x + rect1->w) > SCREEN_WIDTH) {
+            //Left plater scores
+            quit = true;
+        }
+
         theBall->Move(theBall->GetSpeedX(), theBall->GetSpeedY());
 
         SDL_Delay(20);
