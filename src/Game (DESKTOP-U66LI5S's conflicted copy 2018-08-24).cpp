@@ -106,35 +106,54 @@ void Game::Run() {
 
     quit = false;
 
-    theBall->SetSpeed(2, 0);
+    theBall->SetSpeed(4, 0);
 
     while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
+        //Check for keycodes
         if(keystates[SDL_SCANCODE_UP] && !keystates[SDL_SCANCODE_DOWN]) {
             HandlePaddleMove(true, right);
-        } else if (!keystates[SDL_SCANCODE_UP] && keystates[SDL_SCANCODE_DOWN]) {
-            HandlePaddleMove(false, right);
         } else {
             right->SetSpeed(0, 0);
         }
-
+        if (!keystates[SDL_SCANCODE_UP] && keystates[SDL_SCANCODE_DOWN]) {
+            HandlePaddleMove(false, right);
+        } else {
+            left->SetSpeed(0, 0);
+        }
         if(keystates[SDL_SCANCODE_A] && !keystates[SDL_SCANCODE_Z]) {
             HandlePaddleMove(true, left);
         } else if(!keystates[SDL_SCANCODE_A] && keystates[SDL_SCANCODE_Z]) {
             HandlePaddleMove(false, left);
-        } else {
-            left->SetSpeed(0,0);
         }
 
+        //Check for collision with paddles
         if(AreColliding(theBall, left)) {
+            printf("theBall spd Y: %i, left spd Y: %i\n", theBall->GetSpeedY(), left->GetSpeedY());
             theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY() + left->GetSpeedY());
         }
         if(AreColliding(theBall, right)) {
-            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY()+ right->GetSpeedY());
+            theBall->SetSpeed(-theBall->GetSpeedX(), theBall->GetSpeedY() + right->GetSpeedY());
         }
 
+        //Move the ball
         theBall->Move(theBall->GetSpeedX(), theBall->GetSpeedY());
+
+        //Check for ball going outside game area
+        rect1 = theBall->GetRectangle();
+        if (rect1->x <= 0) {
+            //Right player scores
+            quit = true;
+        } else if((rect1->x + rect1->w) >= SCREEN_WIDTH) {
+            //Left player scores
+            quit = true;
+        }
+
+        //Check for collision of ball with y limits
+        if(rect1->y <= 0 || (rect1->y+rect1->h) >= SCREEN_HEIGHT) {
+            theBall->SetSpeed(theBall->GetSpeedX(), -theBall->GetSpeedY());
+        }
 
         SDL_Delay(20);
 
@@ -148,14 +167,6 @@ void Game::Run() {
                     case SDL_SCANCODE_ESCAPE:
                         quit = true;
                         break;
-//                    case SDL_SCANCODE_UP:
-//                        //HandleKeyDown();
-//                        left->Move(0, -5);
-//                        break;
-//                    case SDL_SCANCODE_DOWN:
-//                        left->Move(0, 5);
-//                        break;
-
                 }
             }
         }

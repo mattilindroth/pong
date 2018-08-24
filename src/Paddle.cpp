@@ -6,8 +6,8 @@ Paddle::Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle) : GameItem(surface, 
 }
 
 void Paddle::Move( int x, int y ) {
-    pSpeedX = pRectangle->x - x;
-    pSpeedY = pRectangle->y - y;
+    this->pSpeedX = x;
+    this->pSpeedY = y;
     pRectangle->x += x;
     pRectangle->y += y;
 
