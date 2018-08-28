@@ -5,7 +5,7 @@ Scene::Scene(SDL_Window *window)
     printf("Scene constructor called\n");
     pRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (pRenderer == NULL) {
-        printf("Unable to create renderer...\n");
+        //printf("Unable to create renderer...\n");
         return;
     }
     SDL_SetRenderDrawColor(pRenderer, 0x00, 0x00, 0x00, 0xFF);

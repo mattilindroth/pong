@@ -41,9 +41,10 @@
 			<Add directory="../../../Documents/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include" />
 			<Add directory="../../../OneDrive/Asiakirjat/Development/SDL2-2.0.8/i686-w64-mingw32/include/SDL2" />
 			<Add directory="../../../OneDrive/Asiakirjat/Development/SDL2_image-2.0.3/i686-w64-mingw32/include" />
+			<Add directory="../../../OneDrive/Asiakirjat/Development/SDL2_ttf-devel-2.0.14-mingw/SDL2_ttf-2.0.14/i686-w64-mingw32/include" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf" />
 			<Add directory="D:/Own/SDL2-2.0.4/i686-w64-mingw32/lib" />
 			<Add directory="D:/Own/SDL2_image-2.0.1/i686-w64-mingw32/lib" />
 			<Add directory="../../../Documents/Matti/SDL2-2.0.7/i686-w64-mingw32/lib" />
@@ -52,9 +53,11 @@
 			<Add directory="../../../Documents/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/lib" />
 			<Add directory="../../../OneDrive/Asiakirjat/Development/SDL2-2.0.8/i686-w64-mingw32/lib" />
 			<Add directory="../../../OneDrive/Asiakirjat/Development/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
+			<Add directory="../../../OneDrive/Asiakirjat/Development/SDL2_ttf-devel-2.0.14-mingw/SDL2_ttf-2.0.14/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameItem.h" />
+		<Unit filename="include/MenuItem.h" />
 		<Unit filename="include/Paddle.h" />
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/SceneObject.h" />
@@ -63,6 +66,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameItem.cpp" />
+		<Unit filename="src/MenuItem.cpp" />
 		<Unit filename="src/Paddle.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/SceneObject.cpp" />

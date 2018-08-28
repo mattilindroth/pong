@@ -10,6 +10,7 @@
 #include "white.h"
 #include "Paddle.h"
 #include "ValueRange.h"
+#include <SDL2/SDL_ttf.h>
 
 class Game
 {
@@ -27,7 +28,8 @@ class Game
     //Private variables
     SDL_Window *pWindow;
     //SDL_Renderer *pRenderer;
-    Scene *pScene;
+    Scene *pGameScene;
+    Scene *pMenuScene;
 
 };
 

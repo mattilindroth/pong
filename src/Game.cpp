@@ -19,7 +19,13 @@ Game::Game()
         return;
     }
 
-    pScene = new Scene( pWindow );
+    if(TTF_Init() == -1) {
+        printf("Could not initialize fonts (SDL_ttf.dll)...\n");
+        return;
+    }
+
+    pGameScene = new Scene( pWindow );
+    pMenuScene = new Scene ( pWindow );
 }
 
 bool Game::AreColliding(GameItem *ball, Paddle *paddle) {
@@ -100,9 +106,9 @@ void Game::Run() {
     rect1->w = 8; rect1->h = 20;
     right =  new Paddle(surface, rect1); //new GameItem( surface, rect1, "right paddle");
 
-    pScene->AddItem(theBall);
-    pScene->AddItem(left);
-    pScene->AddItem(right);
+    pGameScene->AddItem(theBall);
+    pGameScene->AddItem(left);
+    pGameScene->AddItem(right);
 
     quit = false;
 
@@ -172,13 +178,13 @@ void Game::Run() {
                 }
             }
         }
-        pScene->RenderItems();
+        pGameScene->RenderItems();
     }
 }
 
 Game::~Game()
 {
-    delete pScene;
+    delete pGameScene;
     SDL_DestroyWindow( pWindow );
     //SDL_DestroyRenderer( pRenderer );
     IMG_Quit();
