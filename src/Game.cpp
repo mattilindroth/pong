@@ -77,7 +77,9 @@ void Game::Run() {
     Paddle *right;
     GameItem *theBall;
     SDL_Surface *surface;
+    SDL_Surface *textSurface;
     SDL_Rect *rect1;
+    TTF_Font* Sans ;
 
     if (pWindow == NULL) {
         printf("SDL window is a null pointer. Exiting...\n");
@@ -96,6 +98,26 @@ void Game::Run() {
     rect1->w = 8; rect1->h = 20;
     left = new Paddle( surface, rect1) ; //, "left  paddle");
 
+    Sans = TTF_OpenFont("Blenda Script.otf", 24);
+    if(Sans == NULL ) {
+        printf("Font is null. Exiting...\n");
+        return;
+    }
+    SDL_Color blueis = {50,50, 255};
+    textSurface = TTF_RenderText_Solid(Sans, "Hello!", blueis);
+    if (textSurface == NULL) {
+        printf("Could not create surface from text. Exiting...\n");
+        return;
+    }
+    GameItem *text = NULL;
+    SDL_Rect *textRect = (struct SDL_Rect*)malloc(sizeof(SDL_Rect));
+    textRect->x = 3;
+    textRect->y = 3;
+    textRect->w = 60;
+    textRect->h = 60;
+    text = new GameItem(textSurface, textRect, "text");
+
+
     surface = IMG_Load( "white.png" );
     if(surface == NULL) {
         fprintf(stderr, "Could not load white.png. Exiting...\n");
@@ -109,7 +131,7 @@ void Game::Run() {
     pGameScene->AddItem(theBall);
     pGameScene->AddItem(left);
     pGameScene->AddItem(right);
-
+    pGameScene->AddItem(text);
     quit = false;
 
     theBall->SetSpeed(2, 0);

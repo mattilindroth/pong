@@ -12,6 +12,7 @@ class Scene
     public:
         Scene(SDL_Window *window);
         void AddItem(GameItem *item);
+        void AddItem(SceneObject *item);
         void RenderItems();
         int GetCountOfItems( void );
         GameItem *GetItemAt(int index);

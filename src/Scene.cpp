@@ -50,6 +50,10 @@ void Scene::AddItem(GameItem *item) {
     pItemsVector.push_back(sceneObject);
 }
 
+void Scene::AddItem(SceneObject *item) {
+    pItemsVector.push_back(item);
+}
+
 int Scene::GetCountOfItems( void ) {
     return pItemsVector.size();
 }

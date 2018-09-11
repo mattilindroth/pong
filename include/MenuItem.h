@@ -2,15 +2,16 @@
 #define MENUITEM_H
 
 #include <SDL2\SDL_ttf.h>
+#include <string>
 
 class MenuItem
 {
     public:
 
-        MenuItem(string label);
+        MenuItem(std::string label);
 
-        void SetLabel(string newLabel);
-        string GetLabel( void );
+        void SetLabel(std::string newLabel);
+        std::string GetLabel( void );
 
         bool IsSelected( void );
         void SetSelected( bool selected );
@@ -20,7 +21,7 @@ class MenuItem
     protected:
 
     private:
-        string pLabel;
+        std::string pLabel;
         bool pIsSelected;
 };
 

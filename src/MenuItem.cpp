@@ -1,14 +1,14 @@
 #include "MenuItem.h"
 
-MenuItem::MenuItem(string label)
+MenuItem::MenuItem(std::string label)
 {
     pLabel = label;
 }
-void MenuItem::SetLabel(string newLabel) {
+void MenuItem::SetLabel(std::string newLabel) {
     pLabel = newLabel;
 }
 
-string MenuItem::GetLabel( void ) {
+std::string MenuItem::GetLabel( void ) {
     return pLabel;
 }
 
