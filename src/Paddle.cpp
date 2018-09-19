@@ -1,6 +1,6 @@
 #include "Paddle.h"
 
-Paddle::Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle) : GameItem(surface, rectangle, "paddle")
+Paddle::Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle, SDL_Renderer *renderer) : GameItem(surface, rectangle, renderer)
 {
 
 }

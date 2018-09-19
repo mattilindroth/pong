@@ -5,11 +5,11 @@
 #include <stdlib.h>
 #include <SDL.h>
 #include <SDL2\SDL_image.h>
+#include "SceneObject.h"
 
-class GameItem
-{
+class GameItem : public SceneObject {
     public:
-        GameItem(SDL_Surface *&surface, SDL_Rect *&rectangle, const char *name);
+        GameItem(SDL_Surface *&surface, SDL_Rect *&rectangle, SDL_Renderer *renderer);
         SDL_Surface *GetSurface( void );
         void Move( int x, int y );
         void SetSpeed(int x, int y);
@@ -24,7 +24,7 @@ class GameItem
     private:
         SDL_Surface *pSurface;
 
-        const char* pName;
+        //const char* pName;
 
 };
 

@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "GameItem.h"
+// #include "GameItem.h"
 #include "SceneObject.h"
 #include <vector>
 
@@ -11,19 +11,19 @@ class Scene
 {
     public:
         Scene(SDL_Window *window);
-        void AddItem(GameItem *item);
         void AddItem(SceneObject *item);
         void RenderItems();
+        SDL_Renderer *GetRenderer( void );
+        void Clear();
+        void RemoveAt(int index);
+        void RemoveItem(SceneObject *object);
         int GetCountOfItems( void );
-        GameItem *GetItemAt(int index);
+        SceneObject *GetObjectAt(int index);
         ~Scene();
 
     protected:
 
     private:
-    //Private functions
-
-    SDL_Texture *SurfaceToTexture(SDL_Surface *surface, SDL_Renderer *renderer);
 
     //Private members
     std::vector<SceneObject *> pItemsVector;

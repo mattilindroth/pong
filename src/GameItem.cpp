@@ -1,11 +1,9 @@
 #include "GameItem.h"
 
-GameItem::GameItem(SDL_Surface *&surface, SDL_Rect *&rectangle, const char *name)
+GameItem::GameItem(SDL_Surface *&surface, SDL_Rect *&rectangle, SDL_Renderer *renderer) : SceneObject(rectangle, SDL_CreateTextureFromSurface(renderer, surface))
 {
-    printf("GameItem constructor called for object %s\n", name);
     pSurface = surface;
     pRectangle = rectangle;
-    pName = name;
 }
 
 void GameItem::Move( int x, int y ) {
@@ -37,8 +35,6 @@ SDL_Rect *GameItem::GetRectangle( void ) {
 
 GameItem::~GameItem()
 {
-    printf("GamneItem destructor called for %s\n", pName);
-    //SDL_DestroyTexture( pTexture );
     SDL_FreeSurface( pSurface );
     delete pRectangle;
     pRectangle = NULL;

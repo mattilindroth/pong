@@ -2,13 +2,12 @@
 #define SCENEOBJECT_H
 
 #include <SDL.h>
-#include "GameItem.h"
+#include <stdlib.h>
 
 class SceneObject
 {
     public:
-        SceneObject(GameItem *gameItem, SDL_Texture *texture);
-        GameItem *GetGameItem( void );
+        SceneObject(SDL_Rect * rect, SDL_Texture *texture);
         SDL_Rect *GetRectangle( void );
         SDL_Texture *GetTexture( void );
         virtual ~SceneObject();
@@ -17,7 +16,8 @@ class SceneObject
 
     private:
         SDL_Texture *pTexture;
-        GameItem *pItem;
+        SDL_Rect* pRect;
+
 };
 
 #endif // SCENEOBJECT_H

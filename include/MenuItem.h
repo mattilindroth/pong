@@ -3,12 +3,15 @@
 
 #include <SDL2\SDL_ttf.h>
 #include <string>
+#include "SceneObject.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-class MenuItem
+class MenuItem : public SceneObject
 {
     public:
 
-        MenuItem(std::string label);
+        MenuItem(std::string label, SDL_Renderer *renderer);
 
         void SetLabel(std::string newLabel);
         std::string GetLabel( void );
