@@ -24,8 +24,16 @@ Game::Game()
         return;
     }
 
-    pGameScene = new Scene( pWindow );
-    pMenuScene = new Scene ( pWindow );
+    pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
+    if (pRenderer == NULL) {
+        return;
+    }
+    SDL_SetRenderDrawColor(pRenderer, 0x00, 0x00, 0x00, 0xFF);
+
+    pGameScene = new Scene(); // pWindow );
+    pMenuScene = new Scene(); // pWindow );
+    pGameScene->SetRenderer(pRenderer);
+    pMenuScene->SetRenderer(pRenderer);
 }
 
 bool Game::AreColliding(GameItem *ball, Paddle *paddle) {
@@ -34,24 +42,18 @@ bool Game::AreColliding(GameItem *ball, Paddle *paddle) {
 
     ValueRange *paddlex = new ValueRange(prect->x + prect->w, prect->x);
     ValueRange *paddley = new ValueRange(prect->y + prect->h, prect->y);
-//    printf("Valuerange paddlex: Min: %i, Max: %i\n", paddlex->GetMin(), paddlex->GetMax());
-//    printf("Valuerange paddley: Min: %i, Max: %i\n", paddley->GetMin(), paddley->GetMax());
 
     if(paddlex->IsInRange(brect->x) && paddley->IsInRange(brect->y)) {
-//        printf("first collision if\n");
         return true;
     }
     if(paddlex->IsInRange(brect->x + brect->w) && paddley->IsInRange(brect->y)) {
-//        printf("second collision if x: %i y: %i\n", brect->x + brect->w, brect->y);
 
         return true;
     }
     if(paddlex->IsInRange(brect->x) && paddley->IsInRange(brect->y + brect->h)) {
-//        printf("third collision if\n");
         return true;
     }
     if(paddlex->IsInRange(brect->x + brect->w) && paddley->IsInRange(brect->y + brect->h)) {
-//        printf("fourth collision if\n");
         return true;
     }
 
@@ -70,6 +72,16 @@ void Game::HandlePaddleMove(bool Up, Paddle *paddle) {
     }
 }
 
+Menu *CreateMenu(SDL_Renderer *renderer) {
+
+    Menu *menu = new Menu();
+    MenuItem *beginGame = new MenuItem("Start game", renderer);
+    MenuItem *exitGame = new MenuItem("Exit game", renderer);
+    menu->AddMenuItem(beginGame);
+    menu->AddMenuItem(exitGame);
+    return menu;
+}
+
 void Game::Run() {
     SDL_Event e;
     bool quit;
@@ -78,6 +90,9 @@ void Game::Run() {
     GameItem *theBall;
     SDL_Surface *surface;
     SDL_Rect *rect1;
+    Menu *menu;
+    MenuItem *startNewGame;
+    MenuItem *exit;
 
     if (pWindow == NULL) {
         printf("SDL window is a null pointer. Exiting...\n");
@@ -94,7 +109,7 @@ void Game::Run() {
     rect1 = (struct SDL_Rect*)malloc(sizeof(SDL_Rect));
     rect1->x = 0; rect1->y = 0;
     rect1->w = 8; rect1->h = 20;
-    left = new Paddle( surface, rect1, pGameScene->GetRenderer()) ; //, "left  paddle");
+    left = new Paddle( surface, rect1, pGameScene->GetRenderer()) ;
 
     surface = IMG_Load( "white.png" );
     if(surface == NULL) {
@@ -104,12 +119,18 @@ void Game::Run() {
     rect1 = (struct SDL_Rect*)malloc(sizeof(SDL_Rect));
     rect1->x = 792; rect1->y = 0;
     rect1->w = 8; rect1->h = 20;
-    right =  new Paddle(surface, rect1, pGameScene->GetRenderer()); //new GameItem( surface, rect1, "right paddle");
+    right =  new Paddle(surface, rect1, pGameScene->GetRenderer());
 
     pGameScene->AddItem(theBall);
     pGameScene->AddItem(left);
     pGameScene->AddItem(right);
     quit = false;
+
+    startNewGame = new MenuItem("Start new game", pMenuScene->GetRenderer());
+    exit = new MenuItem("Exit", pMenuScene->GetRenderer());
+    menu = CreateMenu(pGameScene->GetRenderer());
+    menu->AddMenuItem(startNewGame);
+    menu->AddMenuItem(exit);
 
     theBall->SetSpeed(2, 0);
 
@@ -163,17 +184,14 @@ void Game::Run() {
                 break;
             case SDL_KEYDOWN:
                 switch (e.key.keysym.scancode) {
-                    case SDL_SCANCODE_ESCAPE:
+                    case SDL_SCANCODE_ESCAPE: {
+                        int selectedMenu = menu->Show(pMenuScene);
+                        fprintf(stderr, "Selected menu returned %i\n", selectedMenu);
+                    }
+                        break;
+                    case SDL_SCANCODE_SPACE:
                         quit = true;
                         break;
-//                    case SDL_SCANCODE_UP:
-//                        //HandleKeyDown();
-//                        left->Move(0, -5);
-//                        break;
-//                    case SDL_SCANCODE_DOWN:
-//                        left->Move(0, 5);
-//                        break;
-
                 }
             }
         }
@@ -183,9 +201,10 @@ void Game::Run() {
 
 Game::~Game()
 {
+    SDL_DestroyRenderer( pRenderer );
     delete pGameScene;
+    delete pMenuScene;
     SDL_DestroyWindow( pWindow );
-    //SDL_DestroyRenderer( pRenderer );
     IMG_Quit();
     SDL_Quit();
     printf("Game destructor called\n");

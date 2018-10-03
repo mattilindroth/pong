@@ -1,17 +1,21 @@
 #include "Scene.h"
 
-Scene::Scene(SDL_Window *window)
+Scene::Scene() //SDL_Window *window)
 {
     printf("Scene constructor called\n");
-    pRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (pRenderer == NULL) {
-        return;
-    }
-    SDL_SetRenderDrawColor(pRenderer, 0x00, 0x00, 0x00, 0xFF);
+//    pRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+//    if (pRenderer == NULL) {
+//        return;
+//    }
+//    SDL_SetRenderDrawColor(pRenderer, 0x00, 0x00, 0x00, 0xFF);
 }
 
 SDL_Renderer *Scene::GetRenderer( void ){
     return pRenderer;
+}
+
+void Scene::SetRenderer( SDL_Renderer *renderer ) {
+    pRenderer = renderer;
 }
 
 void Scene::Clear() {
@@ -68,6 +72,5 @@ Scene::~Scene()
         sObject = (*it);
         delete sObject;
     }
-    SDL_DestroyRenderer( pRenderer );
     printf("Scene destructor called\n");
 }

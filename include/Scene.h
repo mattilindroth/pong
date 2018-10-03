@@ -10,10 +10,11 @@
 class Scene
 {
     public:
-        Scene(SDL_Window *window);
+        Scene(); //SDL_Window *window);
         void AddItem(SceneObject *item);
         void RenderItems();
         SDL_Renderer *GetRenderer( void );
+        void SetRenderer( SDL_Renderer *renderer );
         void Clear();
         void RemoveAt(int index);
         void RemoveItem(SceneObject *object);

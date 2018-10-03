@@ -10,6 +10,8 @@
 #include "white.h"
 #include "Paddle.h"
 #include "ValueRange.h"
+#include "Menu.h"
+#include "MenuItem.h"
 #include <SDL2/SDL_ttf.h>
 
 class Game
@@ -27,7 +29,7 @@ class Game
     private:
     //Private variables
     SDL_Window *pWindow;
-    //SDL_Renderer *pRenderer;
+    SDL_Renderer *pRenderer;
     Scene *pGameScene;
     Scene *pMenuScene;
 

@@ -22,10 +22,8 @@ void Menu::RemoveMenuItemAt(int index) {
 }
 
 int Menu::Show(Scene *scene) {
-    //TODO Add the menu loop here
-    // render and keyhandlers also here
     bool quit;
-    int result = -1;
+    int result = 0;
     MenuItem *menuItem;
 
     //Add the menu items to scene
@@ -40,15 +38,23 @@ int Menu::Show(Scene *scene) {
 
         if(keystates[SDL_SCANCODE_UP]  && !keystates[SDL_SCANCODE_DOWN]) {
             // TODO: Handle selected change
-
-            //HandlePaddleMove(true, right);
+            result = result - 1;
+            if(result < 0 )
+                result = pMenuItems.size();
+        else if(!keystates[SDL_SCANCODE_UP]  && keystates[SDL_SCANCODE_DOWN])
+            result = result + 1;
+            if(((unsigned int)result) > pMenuItems.size())
+                result = 0;
         } else if (!keystates[SDL_SCANCODE_ESCAPE]) {
             // TODO: Handle menu quit
+            result = -1;
             quit = true;
         } else if (!keystates[SDL_SCANCODE_RETURN]) {
             //TODO: Select menu action. Quit with index
+            quit = true;
             //right->SetSpeed(0, 0);
         }
+        scene->RenderItems();
     }
 
     //remove items from scene
