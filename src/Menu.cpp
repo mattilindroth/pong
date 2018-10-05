@@ -25,38 +25,48 @@ int Menu::Show(Scene *scene) {
     bool quit;
     int result = 0;
     MenuItem *menuItem;
+    SDL_Event e;
 
     //Add the menu items to scene
     for(std::vector<MenuItem *>::iterator it = pMenuItems.begin(); it != pMenuItems.end(); ++it) {
         menuItem = (*it);
         scene->AddItem(menuItem);
     }
-
+    SDL_Delay(500);
     quit = false;
-    while(quit) {
+    while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
-        if(keystates[SDL_SCANCODE_UP]  && !keystates[SDL_SCANCODE_DOWN]) {
-            // TODO: Handle selected change
-            result = result - 1;
-            if(result < 0 )
-                result = pMenuItems.size();
-        else if(!keystates[SDL_SCANCODE_UP]  && keystates[SDL_SCANCODE_DOWN])
-            result = result + 1;
-            if(((unsigned int)result) > pMenuItems.size())
-                result = 0;
-        } else if (!keystates[SDL_SCANCODE_ESCAPE]) {
-            // TODO: Handle menu quit
-            result = -1;
-            quit = true;
-        } else if (!keystates[SDL_SCANCODE_RETURN]) {
-            //TODO: Select menu action. Quit with index
-            quit = true;
-            //right->SetSpeed(0, 0);
+        while(SDL_PollEvent(&e) != 0) {
+            switch (e.type ) {
+                case SDL_QUIT:
+                    quit = true;
+                    break;
+                case SDL_KEYDOWN:
+                    switch (e.key.keysym.scancode) {
+                        case SDL_SCANCODE_ESCAPE:
+                            result = -1;
+                            quit = true;
+                            break;
+                        case SDL_SCANCODE_RETURN:
+                            quit = true;
+                            break;
+                        case SDL_SCANCODE_UP:
+                            result = result - 1;
+                            if(result < 0 )
+                                result = pMenuItems.size();
+                            break;
+                        case SDL_SCANCODE_DOWN:
+                            result = result + 1;
+                            if(((unsigned int)result) > pMenuItems.size())
+                                result = 0;
+                            break;
+                        }
+                break;
+            }
         }
         scene->RenderItems();
     }
-
     //remove items from scene
     scene->Clear();
 

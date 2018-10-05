@@ -339,7 +339,7 @@
 	"MenuItem.h"
 	<SDL2/SDL_ttf.h>
 
-1538597115 source:c:\users\matti\dropbox\development\pong\src\game.cpp
+1538768856 source:c:\users\matti\dropbox\development\pong\src\game.cpp
 	"Game.h"
 
 1519829779 source:c:\users\roki\dropbox\development\pong\main.cpp
@@ -1925,7 +1925,7 @@
 1534915024 source:c:\users\vivaldi\dropbox\development\pong\src\valuerange.cpp
 	"ValueRange.h"
 
-1538598025 source:c:\users\matti\dropbox\development\pong\src\menu.cpp
+1538769466 source:c:\users\matti\dropbox\development\pong\src\menu.cpp
 	"Menu.h"
 
 1536957154 c:\users\matti\dropbox\development\pong\include\menu.h

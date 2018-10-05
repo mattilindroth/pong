@@ -20,8 +20,8 @@ SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
     SDL_Rect *textRect = (struct SDL_Rect*)malloc(sizeof(SDL_Rect));
     textRect->x = 3;
     textRect->y = 3;
-    textRect->w = 60;
-    textRect->h = 60;
+    textRect->w = 40;
+    textRect->h = 100;
     texture = SDL_CreateTextureFromSurface(renderer,textSurface);
     return texture;
 

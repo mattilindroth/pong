@@ -93,6 +93,9 @@ void Game::Run() {
     Menu *menu;
     MenuItem *startNewGame;
     MenuItem *exit;
+    bool isEscapeDown = false;
+    bool invokeMenu = false;
+    int selectedMenu;
 
     if (pWindow == NULL) {
         printf("SDL window is a null pointer. Exiting...\n");
@@ -137,6 +140,14 @@ void Game::Run() {
     while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
+        /*Check escape key for menu*/
+        if(keystates[SDL_SCANCODE_ESCAPE]) {
+            isEscapeDown = true;
+        } else if(isEscapeDown == true) { //Escape was down but is no more
+            invokeMenu = true;
+            isEscapeDown = false;
+        }
+
         if(keystates[SDL_SCANCODE_UP] && !keystates[SDL_SCANCODE_DOWN]) {
             HandlePaddleMove(true, right);
         } else if (!keystates[SDL_SCANCODE_UP] && keystates[SDL_SCANCODE_DOWN]) {
@@ -177,6 +188,24 @@ void Game::Run() {
 
         SDL_Delay(20);
 
+        if(invokeMenu) {
+            selectedMenu = menu->Show(pMenuScene);
+            invokeMenu = false;
+
+            switch(selectedMenu) {
+            case -1:
+                //Do nothing, continue game
+                break;
+            case 0:
+                //Todo start new game
+                break;
+            case 1:
+                //quit game
+                quit = true;
+                break;
+            }
+        }
+
         while(SDL_PollEvent( &e ) != 0) {
             switch (e.type ) {
                 case SDL_QUIT:
@@ -184,11 +213,6 @@ void Game::Run() {
                 break;
             case SDL_KEYDOWN:
                 switch (e.key.keysym.scancode) {
-                    case SDL_SCANCODE_ESCAPE: {
-                        int selectedMenu = menu->Show(pMenuScene);
-                        fprintf(stderr, "Selected menu returned %i\n", selectedMenu);
-                    }
-                        break;
                     case SDL_SCANCODE_SPACE:
                         quit = true;
                         break;
