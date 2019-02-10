@@ -5,9 +5,9 @@ SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
     TTF_Font* Sans ;
     SDL_Texture *texture;
 
-    Sans = TTF_OpenFont("Blenda Script.otf", 24);
+    Sans = TTF_OpenFont("ABeeZee-Regular.otf", 16);
     if(Sans == NULL ) {
-        printf("Font is null. Exiting...\n");
+        fprintf(stderr, "Font is null. Exiting...\n");
         return NULL;
     }
     SDL_Color blueis = {50,50, 255};
@@ -18,9 +18,9 @@ SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
     }
 
     SDL_Rect *textRect = (struct SDL_Rect*)malloc(sizeof(SDL_Rect));
-    textRect->x = 3;
-    textRect->y = 3;
-    textRect->w = 40;
+    textRect->x = 0;
+    textRect->y = 0;
+    textRect->w = 100;
     textRect->h = 100;
     texture = SDL_CreateTextureFromSurface(renderer,textSurface);
     return texture;
@@ -29,7 +29,12 @@ SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
 
 MenuItem::MenuItem(std::string label, SDL_Renderer *renderer) : SceneObject((SDL_Rect*)malloc(sizeof(SDL_Rect)), CreateTextTexture(label.c_str() , renderer))
 {
+    fprintf(stderr, "In the MenuItem constructor.\n");
     pLabel = label;
+    this->GetRectangle()->x = 100;
+    this->GetRectangle()->y = 100;
+    this->GetRectangle()->h = 100;
+    this->GetRectangle()->w = 100;
 }
 
 void MenuItem::SetLabel(std::string newLabel) {

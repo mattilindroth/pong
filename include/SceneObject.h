@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 class SceneObject
 {

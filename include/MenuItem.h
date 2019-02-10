@@ -11,7 +11,7 @@ class MenuItem : public SceneObject
 {
     public:
 
-        MenuItem(std::string label, SDL_Renderer *renderer);
+        MenuItem(std::string label ,SDL_Renderer *renderer);
 
         void SetLabel(std::string newLabel);
         std::string GetLabel( void );
@@ -26,6 +26,8 @@ class MenuItem : public SceneObject
     private:
         std::string pLabel;
         bool pIsSelected;
+        int pSizeW;
+        int pSizeH;
 };
 
 #endif // MENUITEM_H

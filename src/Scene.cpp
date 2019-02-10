@@ -1,7 +1,9 @@
 #include "Scene.h"
 
-Scene::Scene() //SDL_Window *window)
+Scene::Scene(const int ScreenSizeX, const int ScreenSizeY) //SDL_Window *window)
 {
+    pScreenSizeX = ScreenSizeX;
+    pScreenSizeY = ScreenSizeY;
     printf("Scene constructor called\n");
 //    pRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 //    if (pRenderer == NULL) {
@@ -49,6 +51,14 @@ void Scene::RenderItems() {
         SDL_RenderCopyEx( pRenderer, item->GetTexture(), NULL, item->GetRectangle(),0, NULL, SDL_FLIP_NONE );
     }
     SDL_RenderPresent( pRenderer );
+}
+
+int Scene::GetScreenSizeX( void ) {
+    return this->pScreenSizeX;
+}
+
+int Scene::GetScreenSizeY( void ) {
+    return this->pScreenSizeY;
 }
 
 void Scene::AddItem(SceneObject *item) {

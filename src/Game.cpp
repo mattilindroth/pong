@@ -30,10 +30,12 @@ Game::Game()
     }
     SDL_SetRenderDrawColor(pRenderer, 0x00, 0x00, 0x00, 0xFF);
 
-    pGameScene = new Scene(); // pWindow );
-    pMenuScene = new Scene(); // pWindow );
+    pGameScene = new Scene(SCREEN_WIDTH, SCREEN_HEIGHT); // pWindow );
+    pMenuScene = new Scene(SCREEN_WIDTH, SCREEN_HEIGHT); // pWindow );
+
     pGameScene->SetRenderer(pRenderer);
     pMenuScene->SetRenderer(pRenderer);
+
 }
 
 bool Game::AreColliding(GameItem *ball, Paddle *paddle) {
@@ -74,11 +76,14 @@ void Game::HandlePaddleMove(bool Up, Paddle *paddle) {
 
 Menu *CreateMenu(SDL_Renderer *renderer) {
 
-    Menu *menu = new Menu();
+    TTF_Font *menuFont = TTF_OpenFont("Blenda Script.otf", 24);
+
+    Menu *menu = new Menu(menuFont);
     MenuItem *beginGame = new MenuItem("Start game", renderer);
     MenuItem *exitGame = new MenuItem("Exit game", renderer);
     menu->AddMenuItem(beginGame);
     menu->AddMenuItem(exitGame);
+
     return menu;
 }
 
@@ -96,6 +101,8 @@ void Game::Run() {
     bool isEscapeDown = false;
     bool invokeMenu = false;
     int selectedMenu;
+
+    fprintf(stderr, "In the Game::Run method.\n");
 
     if (pWindow == NULL) {
         printf("SDL window is a null pointer. Exiting...\n");

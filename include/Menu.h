@@ -5,12 +5,13 @@
 #include "GameItem.h"
 #include "Scene.h"
 #include "SceneObject.h"
+#include <SDL2/SDL_ttf.h>
 #include <vector>
 
 class Menu
 {
     public:
-        Menu();
+        Menu(TTF_Font *font);
 
 
         void AddMenuItem(MenuItem *item);
@@ -27,7 +28,9 @@ class Menu
     protected:
 
     private:
+        void SetMenuItemLocations( Scene *scene );
         std::vector<MenuItem *> pMenuItems;
+        TTF_Font *pFont;
 };
 
 #endif // MENU_H

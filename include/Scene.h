@@ -10,7 +10,7 @@
 class Scene
 {
     public:
-        Scene(); //SDL_Window *window);
+        Scene(const int ScreenSizeX, const int ScreenSizeY); //SDL_Window *window);
         void AddItem(SceneObject *item);
         void RenderItems();
         SDL_Renderer *GetRenderer( void );
@@ -20,6 +20,8 @@ class Scene
         void RemoveItem(SceneObject *object);
         int GetCountOfItems( void );
         SceneObject *GetObjectAt(int index);
+        int GetScreenSizeX( void );
+        int GetScreenSizeY( void );
         ~Scene();
 
     protected:
@@ -29,6 +31,9 @@ class Scene
     //Private members
     std::vector<SceneObject *> pItemsVector;
     SDL_Renderer *pRenderer;
+    int pScreenSizeX;
+    int pScreenSizeY;
+
 };
 
 #endif // SCENE_H
