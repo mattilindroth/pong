@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL2\SDL_ttf.h>
 #include <string>
+#include <stdlib.h>
 
 class Text
 {
@@ -16,7 +17,7 @@ class Text
         void SetLocation(int x, int y);
         void SetLocation(SDL_Point point);
 
-        SDL_Rect GetRectangle();
+        SDL_Rect *GetRectangle();
 
         virtual ~Text();
 
