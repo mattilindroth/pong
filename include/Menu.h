@@ -4,6 +4,7 @@
 #include "MenuItem.h"
 #include "GameItem.h"
 #include "Scene.h"
+#include "stdio.h"
 #include "SceneObject.h"
 #include <SDL2/SDL_ttf.h>
 #include <vector>
@@ -26,7 +27,7 @@ class Menu
         virtual ~Menu();
 
     protected:
-
+        void ToggleSelected(int indexOfSelected);
     private:
         void SetMenuItemLocations( Scene *scene );
         std::vector<MenuItem *> pMenuItems;

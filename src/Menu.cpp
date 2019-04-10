@@ -6,7 +6,9 @@ Menu::Menu(TTF_Font *menuItemFont)
 }
 
 void Menu::AddMenuItem(MenuItem *item) {
+    item->GetRectangle()->y = pMenuItems.size() * 100;
     pMenuItems.push_back(item);
+    fprintf(stderr, "pMenuItems.Count() = %i\n", pMenuItems.size());
 }
 
 void Menu::RemoveMenuItem(MenuItem *item) {
@@ -34,6 +36,8 @@ void Menu::SetMenuItemLocations( Scene *scene ) {
         menuItem = (*it);
         text = menuItem->GetLabel();
         TTF_SizeText(pFont, text.c_str(), &currentW, &height);
+        menuItem->GetRectangle()->h = height;
+        menuItem->GetRectangle()->w = currentW;
         if(currentW > maxW) {
             maxW = currentW;
         }
@@ -41,6 +45,16 @@ void Menu::SetMenuItemLocations( Scene *scene ) {
 
     dh = scene->GetScreenSizeY() / pMenuItems.size();
 
+}
+
+void Menu::ToggleSelected(int indexOfSelected) {
+    MenuItem *menuItem;
+    int i = 0;
+    for(std::vector<MenuItem *>::iterator it = pMenuItems.begin(); it != pMenuItems.end(); ++it) {
+        menuItem = (*it);
+        menuItem->SetSelected(i == indexOfSelected);
+        i++;
+    }
 }
 
 int Menu::Show(Scene *scene) {
@@ -77,11 +91,13 @@ int Menu::Show(Scene *scene) {
                             result = result - 1;
                             if(result < 0 )
                                 result = pMenuItems.size();
+                            ToggleSelected(result);
                             break;
                         case SDL_SCANCODE_DOWN:
                             result = result + 1;
                             if(((unsigned int)result) > pMenuItems.size())
                                 result = 0;
+                            ToggleSelected(result);
                             break;
                         }
                 break;

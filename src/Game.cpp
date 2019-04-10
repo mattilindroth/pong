@@ -136,12 +136,7 @@ void Game::Run() {
     pGameScene->AddItem(right);
     quit = false;
 
-    startNewGame = new MenuItem("Start new game", pMenuScene->GetRenderer());
-    exit = new MenuItem("Exit", pMenuScene->GetRenderer());
     menu = CreateMenu(pGameScene->GetRenderer());
-    menu->AddMenuItem(startNewGame);
-    menu->AddMenuItem(exit);
-
     theBall->SetSpeed(2, 0);
 
     while(quit == false) {
@@ -150,8 +145,9 @@ void Game::Run() {
         /*Check escape key for menu*/
         if(keystates[SDL_SCANCODE_ESCAPE]) {
             isEscapeDown = true;
+            invokeMenu  = true;
         } else if(isEscapeDown == true) { //Escape was down but is no more
-            invokeMenu = true;
+            // invokeMenu = true;
             isEscapeDown = false;
         }
 

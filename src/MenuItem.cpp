@@ -1,6 +1,6 @@
 #include "MenuItem.h"
 
-SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
+SDL_Texture *CreateTextTexture(const char *label, SDL_Color color, SDL_Renderer *renderer) {
     SDL_Surface *textSurface;
     TTF_Font* Sans ;
     SDL_Texture *texture;
@@ -10,8 +10,8 @@ SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
         fprintf(stderr, "Font is null. Exiting...\n");
         return NULL;
     }
-    SDL_Color blueis = {50,50, 255};
-    textSurface = TTF_RenderText_Solid(Sans, "Hello!", blueis);
+
+    textSurface = TTF_RenderText_Solid(Sans, label, color);
     if (textSurface == NULL) {
         printf("Could not create surface from text. Exiting...\n");
         return NULL;
@@ -27,9 +27,12 @@ SDL_Texture *CreateTextTexture(const char *label, SDL_Renderer *renderer) {
 
 }
 
-MenuItem::MenuItem(std::string label, SDL_Renderer *renderer) : SceneObject((SDL_Rect*)malloc(sizeof(SDL_Rect)), CreateTextTexture(label.c_str() , renderer))
+MenuItem::MenuItem(std::string label, SDL_Renderer *renderer) : SceneObject((SDL_Rect*)malloc(sizeof(SDL_Rect)), CreateTextTexture(label.c_str() , {50,50, 255}, renderer))
 {
     fprintf(stderr, "In the MenuItem constructor.\n");
+
+    this->pTextureSelected = CreateTextTexture(label.c_str(), {25, 255, 25}, renderer);
+
     pLabel = label;
     this->GetRectangle()->x = 100;
     this->GetRectangle()->y = 100;
@@ -50,10 +53,18 @@ bool MenuItem::IsSelected( void ) {
 }
 
 void MenuItem::SetSelected( bool selected ) {
+    if(selected) {
+        pTemporaryTexture = pTexture;
+        pTexture = pTextureSelected;
+    } else {
+        pTexture = pTemporaryTexture;
+    }
     pIsSelected = selected;
 }
 
 MenuItem::~MenuItem()
 {
-
+    if(pTextureSelected != NULL) {
+        SDL_DestroyTexture(pTextureSelected);
+    }
 }

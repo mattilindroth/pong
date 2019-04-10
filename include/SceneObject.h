@@ -14,10 +14,9 @@ class SceneObject
         virtual ~SceneObject();
 
     protected:
-
-    private:
         SDL_Texture *pTexture;
         SDL_Rect* pRect;
+    private:
 
 };
 

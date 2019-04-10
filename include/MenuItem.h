@@ -26,6 +26,8 @@ class MenuItem : public SceneObject
     private:
         std::string pLabel;
         bool pIsSelected;
+        SDL_Texture *pTextureSelected;
+        SDL_Texture *pTemporaryTexture;
         int pSizeW;
         int pSizeH;
 };
