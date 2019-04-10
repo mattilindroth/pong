@@ -1,10 +1,8 @@
 #include "Game.h"
 
-Game::Game(bool debug)
+Game::Game()
 {
-    SDL_Color white;
     printf("Game constructor called\n");
-    this->pDebug = debug;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("Could not initialize video...\n");
@@ -33,20 +31,13 @@ Game::Game(bool debug)
     }
     SDL_SetRenderDrawColor(pRenderer, 0x00, 0x00, 0x00, 0xFF);
 
-    pGameScene = new Scene(SCREEN_WIDTH, SCREEN_HEIGHT); // pWindow );
-    pMenuScene = new Scene(SCREEN_WIDTH, SCREEN_HEIGHT); // pWindow );
+    pGameScene = new Scene(SCREEN_WIDTH, SCREEN_HEIGHT);
+    pMenuScene = new Scene(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     pGameScene->SetRenderer(pRenderer);
     pMenuScene->SetRenderer(pRenderer);
 
-    if(debug) {
-        printf("Running in DEBUG mode\n");
-        TTF_Font *fpsFont = TTF_OpenFont("Blenda Script.otf", 10);
-
-        white.r = 255; white.g = 255; white.r = 255;
-        pFpsText = new Text("0", white, fpsFont, pRenderer);
-        pFpsText->SetLocation(300, 1);
-    }
+    pInputManager = new InputManager();
 
 }
 
@@ -111,8 +102,6 @@ Menu *CreateMenu(SDL_Renderer *renderer) {
 void Game::Run() {
     SDL_Event e;
     bool quit;
-    clock_t now;
-    clock_t then;
 
     Paddle *left;
     Paddle *right;
@@ -121,8 +110,7 @@ void Game::Run() {
     SDL_Rect *rect1;
     Menu *menu;
     SDL_ShowCursor(SDL_DISABLE);
-//    MenuItem *startNewGame;
-//    MenuItem *exit;
+
     bool isEscapeDown = false;
     bool invokeMenu = false;
     int selectedMenu;
@@ -159,15 +147,12 @@ void Game::Run() {
     pGameScene->AddItem(theBall);
     pGameScene->AddItem(left);
     pGameScene->AddItem(right);
-    if(pDebug) {
-        pGameScene->AddItem(pFpsText);
-    }
+
     quit = false;
 
     menu = CreateMenu(pGameScene->GetRenderer());
     theBall->SetSpeed(1, 0);
 
-    then = clock();
     while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
@@ -255,16 +240,6 @@ void Game::Run() {
                     break;
             }
         }
-        if(this->pDebug) {
-            now = clock();
-            then = now - then;
-            double time_taken = ((double)then)/CLOCKS_PER_SEC; // in seconds
-            std::stringstream stream;
-            stream << std::fixed << std::setprecision(1) << (1.0f / time_taken);
-            std::string s = stream.str();
-            pFpsText->SetText(s);
-            then = now;
-        }
 
         pGameScene->RenderItems();
     }
@@ -275,6 +250,7 @@ Game::~Game()
     SDL_DestroyRenderer( pRenderer );
     delete pGameScene;
     delete pMenuScene;
+    delete pInputManager;
     SDL_DestroyWindow( pWindow );
     IMG_Quit();
     SDL_Quit();

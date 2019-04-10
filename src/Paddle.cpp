@@ -10,6 +10,9 @@ void Paddle::Move( int x, int y ) {
     this->pSpeedY = y;
     pRectangle->x += x;
     pRectangle->y += y;
+}
+
+void KeyboardInput(bool isDown) {
 
 }
 

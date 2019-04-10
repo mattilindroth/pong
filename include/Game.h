@@ -5,9 +5,6 @@
 #include <stdlib.h>
 #include <SDL.h>
 #include <SDL2\SDL_image.h>
-#include <time.h>
-#include <iomanip> // setprecision
-#include <sstream> // stringstream
 
 #include "Scene.h"
 #include "Paddle.h"
@@ -15,12 +12,13 @@
 #include "Menu.h"
 #include "MenuItem.h"
 #include "Text.h"
+#include "InputManager.h"
 #include <SDL2/SDL_ttf.h>
 
 class Game
 {
     public:
-        Game(bool debug);
+        Game();
         void Run();
         ~Game();
 
@@ -36,7 +34,7 @@ class Game
     Scene *pGameScene;
     Scene *pMenuScene;
     Text *pFpsText;
-    bool pDebug;
+    InputManager *pInputManager;
 
 };
 

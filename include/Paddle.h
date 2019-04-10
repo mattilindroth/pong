@@ -4,12 +4,12 @@
 #include "GameItem.h"
 #include <SDL.h>
 
-// How inheritance works in C++?
-class Paddle : public GameItem /*(surface, rectangle, "Paddle") */
+class Paddle : public GameItem
 {
     public:
         Paddle(SDL_Surface *&surface, SDL_Rect *&rectangle, SDL_Renderer *renderer);
         void Move( int x, int y );
+
         virtual ~Paddle();
 
     protected:

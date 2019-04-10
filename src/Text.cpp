@@ -18,6 +18,7 @@ void Text::UpdateTexture() {
 Text::Text(std::string text, SDL_Color color , TTF_Font *font, const SDL_Renderer *renderer)
 {
     fprintf(stderr, "In the Text constructor.\n");
+    this->pTexture = NULL;
     this->pText = text;
     this->pFont = font;
     this->pRect = (SDL_Rect*)malloc(sizeof(SDL_Rect));

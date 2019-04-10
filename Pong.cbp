@@ -60,6 +60,8 @@
 		</Linker>
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameItem.h" />
+		<Unit filename="include/InputListener.h" />
+		<Unit filename="include/InputManager.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MenuItem.h" />
 		<Unit filename="include/Paddle.h" />
@@ -71,6 +73,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameItem.cpp" />
+		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/MenuItem.cpp" />
 		<Unit filename="src/Paddle.cpp" />
