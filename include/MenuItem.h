@@ -3,15 +3,17 @@
 
 #include <SDL2\SDL_ttf.h>
 #include <string>
-#include "SceneObject.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-class MenuItem : public SceneObject
+#include "Renderable.h"
+#include "Text.h"
+
+
+class MenuItem : public Renderable
 {
     public:
-
-        MenuItem(std::string label ,SDL_Renderer *renderer);
+        MenuItem(std::string label ,const SDL_Renderer *renderer);
 
         void SetLabel(std::string newLabel);
         std::string GetLabel( void );
@@ -19,15 +21,17 @@ class MenuItem : public SceneObject
         bool IsSelected( void );
         void SetSelected( bool selected );
 
+        //Renderable - implementations
+        SDL_Rect *GetRectangle( void ) ;
+        SDL_Texture *GetTexture( void ) ;
+
         virtual ~MenuItem();
 
     protected:
 
     private:
-        std::string pLabel;
         bool pIsSelected;
-        SDL_Texture *pTextureSelected;
-        SDL_Texture *pTemporaryTexture;
+        Text *pText;
         int pSizeW;
         int pSizeH;
 };

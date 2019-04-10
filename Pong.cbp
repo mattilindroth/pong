@@ -45,6 +45,7 @@
 			<Add directory="../../../Documents/Matti/SDL2_ttf-devel-2.0.15-mingw/SDL2_ttf-2.0.15/i686-w64-mingw32/include" />
 		</Compiler>
 		<Linker>
+			<Add option="-O1" />
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf" />
 			<Add directory="D:/Own/SDL2-2.0.4/i686-w64-mingw32/lib" />
 			<Add directory="D:/Own/SDL2_image-2.0.1/i686-w64-mingw32/lib" />
@@ -62,11 +63,11 @@
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MenuItem.h" />
 		<Unit filename="include/Paddle.h" />
+		<Unit filename="include/Renderable.h" />
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/SceneObject.h" />
 		<Unit filename="include/Text.h" />
 		<Unit filename="include/ValueRange.h" />
-		<Unit filename="include/white.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameItem.cpp" />

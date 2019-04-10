@@ -12,8 +12,7 @@
 class Menu
 {
     public:
-        Menu(TTF_Font *font);
-
+        Menu(SDL_Rect menuScreenRect);
 
         void AddMenuItem(MenuItem *item);
         void RemoveMenuItem(MenuItem *item);
@@ -29,9 +28,9 @@ class Menu
     protected:
         void ToggleSelected(int indexOfSelected);
     private:
-        void SetMenuItemLocations( Scene *scene );
+        void SetMenuItemLocations( );
         std::vector<MenuItem *> pMenuItems;
-        TTF_Font *pFont;
+        SDL_Rect pMenuScreenRect;
 };
 
 #endif // MENU_H

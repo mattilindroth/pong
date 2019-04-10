@@ -1,8 +1,11 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game(bool debug)
 {
+    SDL_Color white;
     printf("Game constructor called\n");
+    this->pDebug = debug;
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("Could not initialize video...\n");
         return;
@@ -35,6 +38,15 @@ Game::Game()
 
     pGameScene->SetRenderer(pRenderer);
     pMenuScene->SetRenderer(pRenderer);
+
+    if(debug) {
+        printf("Running in DEBUG mode\n");
+        TTF_Font *fpsFont = TTF_OpenFont("Blenda Script.otf", 10);
+
+        white.r = 255; white.g = 255; white.r = 255;
+        pFpsText = new Text("0", white, fpsFont, pRenderer);
+        pFpsText->SetLocation(300, 1);
+    }
 
 }
 
@@ -75,14 +87,23 @@ void Game::HandlePaddleMove(bool Up, Paddle *paddle) {
 }
 
 Menu *CreateMenu(SDL_Renderer *renderer) {
-
-    TTF_Font *menuFont = TTF_OpenFont("Blenda Script.otf", 24);
-
-    Menu *menu = new Menu(menuFont);
+    // fprintf(stderr, "In the Game::CreateMenu.\n");
+    SDL_Rect menuRectangle;
+    menuRectangle.x = 200;
+    menuRectangle.y = 100;
+    menuRectangle.h = 300;
+    menuRectangle.w = 300;
+    Menu *menu = new Menu(menuRectangle);
+    // fprintf(stderr, "creating begin game menu item.\n");
     MenuItem *beginGame = new MenuItem("Start game", renderer);
+    // fprintf(stderr, "creating exit game menu item.\n");
     MenuItem *exitGame = new MenuItem("Exit game", renderer);
+
     menu->AddMenuItem(beginGame);
     menu->AddMenuItem(exitGame);
+
+//    beginGame->GetRectangle()->y = 10;
+//    exitGame->GetRectangle()->y = 30;
 
     return menu;
 }
@@ -90,14 +111,18 @@ Menu *CreateMenu(SDL_Renderer *renderer) {
 void Game::Run() {
     SDL_Event e;
     bool quit;
+    clock_t now;
+    clock_t then;
+
     Paddle *left;
     Paddle *right;
     GameItem *theBall;
     SDL_Surface *surface;
     SDL_Rect *rect1;
     Menu *menu;
-    MenuItem *startNewGame;
-    MenuItem *exit;
+    SDL_ShowCursor(SDL_DISABLE);
+//    MenuItem *startNewGame;
+//    MenuItem *exit;
     bool isEscapeDown = false;
     bool invokeMenu = false;
     int selectedMenu;
@@ -134,11 +159,15 @@ void Game::Run() {
     pGameScene->AddItem(theBall);
     pGameScene->AddItem(left);
     pGameScene->AddItem(right);
+    if(pDebug) {
+        pGameScene->AddItem(pFpsText);
+    }
     quit = false;
 
     menu = CreateMenu(pGameScene->GetRenderer());
-    theBall->SetSpeed(2, 0);
+    theBall->SetSpeed(1, 0);
 
+    then = clock();
     while(quit == false) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
@@ -189,7 +218,7 @@ void Game::Run() {
 
         theBall->Move(theBall->GetSpeedX(), theBall->GetSpeedY());
 
-        SDL_Delay(20);
+        SDL_Delay(10);
 
         if(invokeMenu) {
             selectedMenu = menu->Show(pMenuScene);
@@ -212,16 +241,31 @@ void Game::Run() {
         while(SDL_PollEvent( &e ) != 0) {
             switch (e.type ) {
                 case SDL_QUIT:
-                quit = true;
-                break;
-            case SDL_KEYDOWN:
-                switch (e.key.keysym.scancode) {
-                    case SDL_SCANCODE_SPACE:
-                        quit = true;
-                        break;
+                    quit = true;
+                    break;
+                case SDL_KEYDOWN:
+                    switch (e.key.keysym.scancode) {
+                        case SDL_SCANCODE_SPACE:
+                            quit = true;
+                            break;
+                        default:
+                            break;
                 }
+                default:
+                    break;
             }
         }
+        if(this->pDebug) {
+            now = clock();
+            then = now - then;
+            double time_taken = ((double)then)/CLOCKS_PER_SEC; // in seconds
+            std::stringstream stream;
+            stream << std::fixed << std::setprecision(1) << (1.0f / time_taken);
+            std::string s = stream.str();
+            pFpsText->SetText(s);
+            then = now;
+        }
+
         pGameScene->RenderItems();
     }
 }

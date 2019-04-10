@@ -4,22 +4,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 // #include "GameItem.h"
-#include "SceneObject.h"
+#include "Renderable.h"
 #include <vector>
 
 class Scene
 {
     public:
         Scene(const int ScreenSizeX, const int ScreenSizeY); //SDL_Window *window);
-        void AddItem(SceneObject *item);
+        void AddItem(Renderable *item);
         void RenderItems();
         SDL_Renderer *GetRenderer( void );
         void SetRenderer( SDL_Renderer *renderer );
         void Clear();
         void RemoveAt(int index);
-        void RemoveItem(SceneObject *object);
+        void RemoveItem(Renderable *object);
         int GetCountOfItems( void );
-        SceneObject *GetObjectAt(int index);
+        Renderable *GetObjectAt(int index);
         int GetScreenSizeX( void );
         int GetScreenSizeY( void );
         ~Scene();
@@ -29,7 +29,7 @@ class Scene
     private:
 
     //Private members
-    std::vector<SceneObject *> pItemsVector;
+    std::vector<Renderable *> pItemsVector;
     SDL_Renderer *pRenderer;
     int pScreenSizeX;
     int pScreenSizeY;

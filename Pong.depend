@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1534911091 source:c:\users\matti\dropbox\development\pong\main.cpp
+1534914691 source:c:\users\matti\dropbox\development\pong\main.cpp
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
@@ -326,7 +326,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1538594655 c:\users\matti\dropbox\development\pong\include\game.h
+1538598255 c:\users\matti\dropbox\development\pong\include\game.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -339,7 +339,7 @@
 	"MenuItem.h"
 	<SDL2/SDL_ttf.h>
 
-1549786521 source:c:\users\matti\dropbox\development\pong\src\game.cpp
+1552246010 source:c:\users\matti\dropbox\development\pong\src\game.cpp
 	"Game.h"
 
 1534911091 source:c:\users\roki\dropbox\development\pong\main.cpp
@@ -703,7 +703,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1538851337 c:\users\matti\dropbox\development\pong\include\scene.h
+1538854937 c:\users\matti\dropbox\development\pong\include\scene.h
 	<stdio.h>
 	<stdlib.h>
 	"SceneObject.h"
@@ -715,12 +715,12 @@
 	<SDL.h>
 	<SDL2\SDL_image.h>
 
-1519893279 c:\users\matti\dropbox\development\pong\include\white.h
+1519896879 c:\users\matti\dropbox\development\pong\include\white.h
 
 1519911716 source:c:\users\matti\dropbox\development\pong\src\ball.cpp
 	"Ball.h"
 
-1538850692 source:c:\users\matti\dropbox\development\pong\src\scene.cpp
+1538854292 source:c:\users\matti\dropbox\development\pong\src\scene.cpp
 	"Scene.h"
 
 1519829779 source:c:\users\matti.wiab\dropbox\development\pong\main.cpp
@@ -1108,44 +1108,47 @@
 1519980714 source:c:\users\matti.wiab\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
-1537382811 c:\users\matti\dropbox\development\pong\include\gameitem.h
+1537386411 c:\users\matti\dropbox\development\pong\include\gameitem.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
 	"SceneObject.h"
 
-1548783039 c:\users\matti\dropbox\development\pong\include\sceneobject.h
+1554883326 c:\users\matti\dropbox\development\pong\include\sceneobject.h
 	<SDL.h>
 	<stdlib.h>
 	<stdio.h>
 
-1537382731 source:c:\users\matti\dropbox\development\pong\src\gameitem.cpp
+1537386331 source:c:\users\matti\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
-1534914691 source:c:\users\vivaldi\dropbox\development\pong\main.cpp
+1554902306 source:c:\users\vivaldi\dropbox\development\pong\main.cpp
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
 	"Game.h"
 
-1538598255 c:\users\vivaldi\dropbox\development\pong\include\game.h
+1554897302 c:\users\vivaldi\dropbox\development\pong\include\game.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
 	<SDL2\SDL_image.h>
+	<time.h>
+	<iomanip>
+	<sstream>
 	"Scene.h"
-	"white.h"
 	"Paddle.h"
 	"ValueRange.h"
 	"Menu.h"
 	"MenuItem.h"
+	"Text.h"
 	<SDL2/SDL_ttf.h>
 
-1538854937 c:\users\vivaldi\dropbox\development\pong\include\scene.h
+1554891414 c:\users\vivaldi\dropbox\development\pong\include\scene.h
 	<stdio.h>
 	<stdlib.h>
-	"SceneObject.h"
+	"Renderable.h"
 	<vector>
 
 1537386411 c:\users\vivaldi\dropbox\development\pong\include\gameitem.h
@@ -1155,20 +1158,21 @@
 	<SDL2\SDL_image.h>
 	"SceneObject.h"
 
-1554883326 c:\users\vivaldi\dropbox\development\pong\include\sceneobject.h
+1554891355 c:\users\vivaldi\dropbox\development\pong\include\sceneobject.h
 	<SDL.h>
 	<stdlib.h>
 	<stdio.h>
+	"Renderable.h"
 
 1519896879 c:\users\vivaldi\dropbox\development\pong\include\white.h
 
-1552246010 source:c:\users\vivaldi\dropbox\development\pong\src\game.cpp
+1554901260 source:c:\users\vivaldi\dropbox\development\pong\src\game.cpp
 	"Game.h"
 
 1537386331 source:c:\users\vivaldi\dropbox\development\pong\src\gameitem.cpp
 	"GameItem.h"
 
-1538854292 source:c:\users\vivaldi\dropbox\development\pong\src\scene.cpp
+1554896679 source:c:\users\vivaldi\dropbox\development\pong\src\scene.cpp
 	"Scene.h"
 
 1548786944 source:c:\users\vivaldi\dropbox\development\pong\src\sceneobject.cpp
@@ -1540,10 +1544,10 @@
 1548783344 source:c:\users\roki\dropbox\development\pong\src\sceneobject.cpp
 	"SceneObject.h"
 
-1548783344 source:c:\users\matti\dropbox\development\pong\src\sceneobject.cpp
+1548786944 source:c:\users\matti\dropbox\development\pong\src\sceneobject.cpp
 	"SceneObject.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -1575,12 +1579,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_main.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -1609,34 +1613,34 @@
 	<stdlib.h>
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_config.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_platform.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\begin_code.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\begin_code.h
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\close_code.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\close_code.h
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_assert.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_audio.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -1646,24 +1650,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_error.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_endian.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_thread.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -1674,18 +1678,18 @@
 	<stdlib.h>
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -1699,7 +1703,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_events.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -1713,7 +1717,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_video.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -1721,13 +1725,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_rect.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -1735,7 +1739,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_surface.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -1744,11 +1748,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -1756,27 +1760,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -1784,11 +1788,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_quit.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -1796,60 +1800,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_touch.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_hints.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_log.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_power.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_render.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_shape.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_shape.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -1858,7 +1862,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_system.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -1866,47 +1870,47 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_timer.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922211 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_version.h
+1519925811 c:\users\matti\onedrive\asiakirjat\development\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519932851 c:\users\matti\onedrive\asiakirjat\development\sdl2_image-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
+1519936451 c:\users\matti\onedrive\asiakirjat\development\sdl2_image-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1537383094 source:c:\users\matti\dropbox\development\pong\src\paddle.cpp
+1537386694 source:c:\users\matti\dropbox\development\pong\src\paddle.cpp
 	"Paddle.h"
 
-1537383122 c:\users\matti\dropbox\development\pong\include\paddle.h
+1537386722 c:\users\matti\dropbox\development\pong\include\paddle.h
 	"GameItem.h"
 	<SDL.h>
 
-1534858970 c:\users\matti\dropbox\development\pong\include\valuerange.h
+1534862570 c:\users\matti\dropbox\development\pong\include\valuerange.h
 	<stdio.h>
 
-1534911424 source:c:\users\matti\dropbox\development\pong\src\valuerange.cpp
+1534915024 source:c:\users\matti\dropbox\development\pong\src\valuerange.cpp
 	"ValueRange.h"
 
-1551258223 source:c:\users\matti\dropbox\development\pong\src\menuitem.cpp
+1552247628 source:c:\users\matti\dropbox\development\pong\src\menuitem.cpp
 	"MenuItem.h"
 
-1548782498 c:\users\matti\dropbox\development\pong\include\menuitem.h
+1552247445 c:\users\matti\dropbox\development\pong\include\menuitem.h
 	<SDL2\SDL_ttf.h>
 	<string>
 	"SceneObject.h"
 	<stdio.h>
 	<stdlib.h>
 
-1454362933 c:\users\matti\onedrive\asiakirjat\development\sdl2_ttf-devel-2.0.14-mingw\sdl2_ttf-2.0.14\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+1454366533 c:\users\matti\onedrive\asiakirjat\development\sdl2_ttf-devel-2.0.14-mingw\sdl2_ttf-2.0.14\i686-w64-mingw32\include\sdl2\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
@@ -1923,15 +1927,16 @@
 	"begin_code.h"
 	"close_code.h"
 
-1552247628 source:c:\users\vivaldi\dropbox\development\pong\src\menuitem.cpp
+1554901024 source:c:\users\vivaldi\dropbox\development\pong\src\menuitem.cpp
 	"MenuItem.h"
 
-1552247445 c:\users\vivaldi\dropbox\development\pong\include\menuitem.h
+1554898335 c:\users\vivaldi\dropbox\development\pong\include\menuitem.h
 	<SDL2\SDL_ttf.h>
 	<string>
-	"SceneObject.h"
 	<stdio.h>
 	<stdlib.h>
+	"Renderable.h"
+	"Text.h"
 
 1537386694 source:c:\users\vivaldi\dropbox\development\pong\src\paddle.cpp
 	"Paddle.h"
@@ -1939,13 +1944,14 @@
 1534915024 source:c:\users\vivaldi\dropbox\development\pong\src\valuerange.cpp
 	"ValueRange.h"
 
-1549786461 source:c:\users\matti\dropbox\development\pong\src\menu.cpp
+1552247766 source:c:\users\matti\dropbox\development\pong\src\menu.cpp
 	"Menu.h"
 
-1538852431 c:\users\matti\dropbox\development\pong\include\menu.h
+1552246511 c:\users\matti\dropbox\development\pong\include\menu.h
 	"MenuItem.h"
 	"GameItem.h"
 	"Scene.h"
+	"stdio.h"
 	"SceneObject.h"
 	<SDL2/SDL_ttf.h>
 	<vector>
@@ -1990,7 +1996,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1552246511 c:\users\vivaldi\dropbox\development\pong\include\menu.h
+1554900871 c:\users\vivaldi\dropbox\development\pong\include\menu.h
 	"MenuItem.h"
 	"GameItem.h"
 	"Scene.h"
@@ -1999,14 +2005,31 @@
 	<SDL2/SDL_ttf.h>
 	<vector>
 
-1552247766 source:c:\users\vivaldi\dropbox\development\pong\src\menu.cpp
+1554900864 source:c:\users\vivaldi\dropbox\development\pong\src\menu.cpp
 	"Menu.h"
 
-1554883585 source:c:\users\vivaldi\dropbox\development\pong\src\text.cpp
+1554901380 source:c:\users\vivaldi\dropbox\development\pong\src\text.cpp
 	"Text.h"
 
-1554883271 c:\users\vivaldi\dropbox\development\pong\include\text.h
+1554899043 c:\users\vivaldi\dropbox\development\pong\include\text.h
 	<SDL.h>
 	<SDL2\SDL_ttf.h>
 	<string>
+	<stdlib.h>
+	<stdio.h>
+	"Renderable.h"
+
+1554883585 source:c:\users\matti\dropbox\development\pong\src\text.cpp
+	"Text.h"
+
+1554883271 c:\users\matti\dropbox\development\pong\include\text.h
+	<SDL.h>
+	<SDL2\SDL_ttf.h>
+	<string>
+
+1554896101 c:\users\vivaldi\dropbox\development\pong\include\renderable.h
+	<SDL.h>
+
+1554891057 source:c:\users\vivaldi\dropbox\development\pong\src\renderable.cpp
+	"Renderable.h"
 

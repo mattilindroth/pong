@@ -28,10 +28,10 @@ void Scene::RemoveAt(int index) {
     pItemsVector.erase(pItemsVector.begin() + index);
 }
 
-void Scene::RemoveItem(SceneObject *object) {
-    SceneObject *item;
+void Scene::RemoveItem(Renderable *object) {
+    Renderable *item;
 
-    for (std::vector<SceneObject*>::iterator it = pItemsVector.begin(); it != pItemsVector.end(); ++it) {
+    for (std::vector<Renderable*>::iterator it = pItemsVector.begin(); it != pItemsVector.end(); ++it) {
         item = (*it);
         if(item == object) {
             pItemsVector.erase(it);
@@ -41,14 +41,15 @@ void Scene::RemoveItem(SceneObject *object) {
 }
 
 void Scene::RenderItems() {
-    SceneObject *item;
+    Renderable *item;
 
     SDL_RenderClear( pRenderer );
 
-    for (std::vector<SceneObject*>::iterator it = pItemsVector.begin(); it != pItemsVector.end(); ++it) {
+    for (std::vector<Renderable*>::iterator it = pItemsVector.begin(); it != pItemsVector.end(); ++it) {
         item = (*it);
 
-        SDL_RenderCopyEx( pRenderer, item->GetTexture(), NULL, item->GetRectangle(),0, NULL, SDL_FLIP_NONE );
+        //SDL_RenderCopyEx( pRenderer, item->GetTexture(), NULL, item->GetRectangle(),0, NULL, SDL_FLIP_NONE );
+        SDL_RenderCopy(pRenderer, item->GetTexture(), NULL, item->GetRectangle());
     }
     SDL_RenderPresent( pRenderer );
 }
@@ -61,7 +62,7 @@ int Scene::GetScreenSizeY( void ) {
     return this->pScreenSizeY;
 }
 
-void Scene::AddItem(SceneObject *item) {
+void Scene::AddItem(Renderable *item) {
     pItemsVector.push_back(item);
 }
 
@@ -69,16 +70,16 @@ int Scene::GetCountOfItems( void ) {
     return pItemsVector.size();
 }
 
-SceneObject *Scene::GetObjectAt(int index) {
-    SceneObject *sceneObject;
+Renderable *Scene::GetObjectAt(int index) {
+    Renderable *sceneObject;
     sceneObject = pItemsVector.at(index);
     return sceneObject;
 }
 
 Scene::~Scene()
 {
-    SceneObject *sObject;
-    for (std::vector<SceneObject *>::iterator it = pItemsVector.begin(); it != pItemsVector.end(); ++it) {
+    Renderable *sObject;
+    for (std::vector<Renderable *>::iterator it = pItemsVector.begin(); it != pItemsVector.end(); ++it) {
         sObject = (*it);
         delete sObject;
     }

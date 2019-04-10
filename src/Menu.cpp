@@ -1,12 +1,11 @@
 #include "Menu.h"
 
-Menu::Menu(TTF_Font *menuItemFont)
+Menu::Menu(SDL_Rect menuScreen)
 {
-    pFont = menuItemFont;
+    this->pMenuScreenRect = menuScreen;
 }
 
 void Menu::AddMenuItem(MenuItem *item) {
-    item->GetRectangle()->y = pMenuItems.size() * 100;
     pMenuItems.push_back(item);
     fprintf(stderr, "pMenuItems.Count() = %i\n", pMenuItems.size());
 }
@@ -23,28 +22,31 @@ void Menu::RemoveMenuItemAt(int index) {
     pMenuItems.erase(pMenuItems.begin()+index);
 }
 
-void Menu::SetMenuItemLocations( Scene *scene ) {
+void Menu::SetMenuItemLocations( ) {
 
-    int maxW = 0;
+    int cumulativeY = 0;
     int currentW = 0;
-    int height = 0; //Note we asssume here the height is same for each item which of course is naive
-    int dh;
+    int combinedFontHeights = 0;
+    int spacingY = 0;
     MenuItem *menuItem;
     std::string text;
-    //Find longest text
+
     for(std::vector<MenuItem *>::iterator it = pMenuItems.begin(); it != pMenuItems.end(); ++it) {
         menuItem = (*it);
-        text = menuItem->GetLabel();
-        TTF_SizeText(pFont, text.c_str(), &currentW, &height);
-        menuItem->GetRectangle()->h = height;
-        menuItem->GetRectangle()->w = currentW;
-        if(currentW > maxW) {
-            maxW = currentW;
-        }
+        combinedFontHeights += menuItem->GetRectangle()->h;
+        currentW = menuItem->GetRectangle()->w;
+
+        //Set the x so the text is in the middle of menuscreen.
+        menuItem->GetRectangle()->x = (this->pMenuScreenRect.x + (this->pMenuScreenRect.w / 2) - (currentW / 2));
     }
+    spacingY = (this->pMenuScreenRect.h - combinedFontHeights) / (pMenuItems.size() -1);
 
-    dh = scene->GetScreenSizeY() / pMenuItems.size();
-
+    cumulativeY = this->pMenuScreenRect.y;
+    for(std::vector<MenuItem *>::iterator it = pMenuItems.begin(); it != pMenuItems.end(); ++it) {
+        menuItem = (*it);
+        menuItem->GetRectangle()->y = cumulativeY;
+        cumulativeY += spacingY + menuItem->GetRectangle()->h;
+    }
 }
 
 void Menu::ToggleSelected(int indexOfSelected) {
@@ -63,6 +65,8 @@ int Menu::Show(Scene *scene) {
     MenuItem *menuItem;
     SDL_Event e;
 
+    this->SetMenuItemLocations();
+
     //Add the menu items to scene
     for(std::vector<MenuItem *>::iterator it = pMenuItems.begin(); it != pMenuItems.end(); ++it) {
         menuItem = (*it);
@@ -71,7 +75,6 @@ int Menu::Show(Scene *scene) {
     SDL_Delay(500);
     quit = false;
     while(quit == false) {
-        const Uint8* keystates = SDL_GetKeyboardState(NULL);
 
         while(SDL_PollEvent(&e) != 0) {
             switch (e.type ) {
@@ -98,6 +101,8 @@ int Menu::Show(Scene *scene) {
                             if(((unsigned int)result) > pMenuItems.size())
                                 result = 0;
                             ToggleSelected(result);
+                            break;
+                        default:
                             break;
                         }
                 break;

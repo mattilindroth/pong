@@ -10,7 +10,7 @@ int main(int argc, char**argv)
 {
     Game *game = NULL;
 //    ValueRange *vr = new ValueRange(8, 0)
-    game = new Game();
+    game = new Game(false);
     game->Run();
 
     delete game;

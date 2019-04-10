@@ -4,8 +4,9 @@
 #include <SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "Renderable.h"
 
-class SceneObject
+class SceneObject : public Renderable
 {
     public:
         SceneObject(SDL_Rect * rect, SDL_Texture *texture);
